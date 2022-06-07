@@ -12,8 +12,9 @@ def parse_arguments(parser):
     parser.add_argument('--seed', type=int, default=42, help="random seed")
     parser.add_argument('--digit2zero', action="store_true", default=True,
                         help="convert the number to 0, make it true is better")
-    parser.add_argument('--dataset', type=str, default="BC5CDR")
+    parser.add_argument('--dataset', type=str, default="CONLL")
     parser.add_argument('--embedding_file', type=str,
+                        # default=None,
                         default=r"gloveEN/glove.6B.100d.txt",
                         help="we will using random embeddings if file do not exist")
     parser.add_argument('--embedding_dim', type=int, default=100)
@@ -39,7 +40,7 @@ def parse_arguments(parser):
     parser.add_argument('--use_char_rnn', type=int, default=1, choices=[0, 1], help="use character-level lstm, 0 or 1")
     parser.add_argument('--context_emb', type=bool, default=False, help="contextual word embedding")
     parser.add_argument('--ds_setting', nargs='+', help="+ hard / soft matching")  # soft, hard
-    parser.add_argument('--percentage', type=int, default=5, help="how much percentage training dataset to use")
+    parser.add_argument('--percentage', type=int, default=10, help="how much percentage training dataset to use")
 
     args = parser.parse_args()
     for k in args.__dict__:
